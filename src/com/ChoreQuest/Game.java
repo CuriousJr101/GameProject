@@ -1,7 +1,6 @@
 package com.ChoreQuest;
 
 import java.awt.Canvas;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
@@ -10,8 +9,11 @@ import java.awt.image.DataBufferInt;
 
 import javax.swing.JFrame;
 
-import com.ChoreQuest.Graphic.Tiles.Screen;
+import com.ChoreQuest.Graphic.Screen;
+import com.ChoreQuest.Graphic.Tile;
 import com.ChoreQuest.KeyboardInputs.Keyboard;
+import com.ChoreQuest.Levels.Level;
+import com.ChoreQuest.Levels.PickUpLaundry.Level1_BillyRoom;
 
 public class Game extends Canvas implements Runnable{
 	public final int WIDTH = 350;
@@ -24,6 +26,8 @@ public class Game extends Canvas implements Runnable{
 	public JFrame frame;
 	public Screen screen;
 	public Keyboard key;
+	public Tile tile;
+	public Level level;
 	public BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 	public int[] pixels = ((DataBufferInt)image.getRaster().getDataBuffer()).getData();
 	
@@ -47,6 +51,7 @@ public class Game extends Canvas implements Runnable{
 		setPreferredSize(d);
 		frame = new JFrame();
 		screen = new Screen(WIDTH, HEIGHT);
+		level = new Level1_BillyRoom("/ChoreQuest/Level1-Billy's Room.png");
 		key = new Keyboard();
 		addKeyListener(key);
 	}
@@ -73,14 +78,13 @@ public class Game extends Canvas implements Runnable{
 			return;
 		}
 		screen.clear();
-		screen.render(x, y);
+		level.render(x, y, screen);
+		
 		for(int i = 0; i < pixels.length; i++){
 			pixels[i] = screen.pixels[i];
 		}
 		
 		Graphics graphics = bs.getDrawGraphics();
-		graphics.setColor(Color.DARK_GRAY);
-		graphics.fillRect(0, 0, getWidth(), getHeight());
 		graphics.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 		graphics.dispose();
 		bs.show();

@@ -1,4 +1,4 @@
-package com.ChoreQuest.Graphic.Tiles;
+package com.ChoreQuest.Graphic;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -22,7 +22,7 @@ public class SpriteSheet {
 	
 	public void load(){
 		try {
-			BufferedImage image = (BufferedImage) ImageIO.read(SpriteSheet.class.getResource(path));
+			BufferedImage image = ImageIO.read(SpriteSheet.class.getResource(path));
 			int w = image.getWidth();
 			int h = image.getHeight();
 			image.getRGB(0, 0, w, h, pixels, 0, w); // Sets the pixels to the image

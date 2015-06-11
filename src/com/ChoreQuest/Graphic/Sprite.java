@@ -1,4 +1,4 @@
-package com.ChoreQuest.Graphic.Tiles;
+package com.ChoreQuest.Graphic;
 
 public class Sprite {
 	
@@ -7,7 +7,9 @@ public class Sprite {
 	public int[] pixels;
 	public SpriteSheet sheet;
 	
-	public static Sprite floor = new Sprite(16, 0, 1, SpriteSheet.sheet1);
+	public static Sprite floorTile1 = new Sprite(16, 1, 1, SpriteSheet.sheet1);
+	public static Sprite legoWallAssociatedWithFloorTile1 = new Sprite(16, 1, 2, SpriteSheet.sheet1);
+	public static Sprite smallWoodenBoards = new Sprite(16, 2, 1, SpriteSheet.sheet1);
 	
 	public Sprite(int size, int x, int y, SpriteSheet sheet){
 		SIZE = size;
