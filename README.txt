@@ -1,5 +1,5 @@
 README - 
 
-ChoreQuest is a game developed by 3 yolo-ists who want to expand their knowledge of coding.
+ChoreQuest is a game developed by 2 yolo-ists who want to expand their knowledge of coding.
 
-Copyright 2015 Rhythem Sharma, Om Dalvi, and Aayush Sharma
+Copyright 2015 Rhythem Sharma and Aayush Sharma
